@@ -37,6 +37,7 @@ class _ShowcasePageState extends State<ShowcasePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  viewComponentButton(),
                   viewComponentInput(),
                   viewComponentDialog(),
                   SizedBox(
@@ -47,6 +48,30 @@ class _ShowcasePageState extends State<ShowcasePage> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget viewComponentButton() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Button', style: TextStyle(fontSize: 20)),
+          SizedBox(height: 20),
+          Text('Primary', style: TextStyle(fontSize: 14)),
+          SizedBox(height: 15),
+          ButtonPrimaryWidget(label: 'Label', isActive: true),
+          SizedBox(height: 20),
+          ButtonPrimaryWidget(label: 'Label', isActive: false),
+          SizedBox(height: 20),
+          Text('Secondary', style: TextStyle(fontSize: 14)),
+          SizedBox(height: 15),
+          ButtonSecondaryWidget(label: 'Label', isActive: true),
+          SizedBox(height: 20),
+          ButtonSecondaryWidget(label: 'Label', isActive: false),
+        ],
       ),
     );
   }
