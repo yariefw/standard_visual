@@ -23,3 +23,5 @@ Color get _windowFrameContent => Color(0xFF4455a0);
 Color get _onWindowFrameTitle => Color(0xFFd0d6f0);
 
 Color get _windowCard => _windowFrameContent;
+
+Color get _sliderTrack => _windowFrameContent;

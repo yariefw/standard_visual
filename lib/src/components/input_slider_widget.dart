@@ -58,6 +58,8 @@ class _InputSliderWidgetState extends State<InputSliderWidget> {
             return Slider(
               label: '${(currentValue * 100).round()}%',
               allowedInteraction: SliderInteraction.tapAndSlide,
+              thumbColor: _sliderTrack,
+              activeColor: _sliderTrack,
               min: 0,
               max: 1,
               value: currentValue,
