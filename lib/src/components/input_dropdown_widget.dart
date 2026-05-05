@@ -17,6 +17,9 @@ class InputDropdownWidget extends StatefulWidget {
     this.labelText,
     this.border,
     this.textStyle,
+    this.height,
+    this.width,
+    this.iconColor,
   });
 
   final bool enabled;
@@ -26,6 +29,9 @@ class InputDropdownWidget extends StatefulWidget {
   final String? labelText;
   final InputBorder? border;
   final TextStyle? textStyle;
+  final double? height;
+  final double? width;
+  final Color? iconColor;
 
   @override
   State<InputDropdownWidget> createState() => _InputDropdownWidgetState();
@@ -44,40 +50,49 @@ class _InputDropdownWidgetState extends State<InputDropdownWidget> {
           ),
         IgnorePointer(
           ignoring: !widget.enabled,
-          child: DropdownMenu<String>(
-            width: context.maxWidth - 32,
-            alignmentOffset: Offset(-16, 0),
-            textStyle: widget.textStyle ?? _textNormal,
-            inputDecorationTheme: InputDecorationTheme(
-              enabledBorder: widget.border,
-              disabledBorder: widget.border,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: widget.height ?? double.maxFinite,
+              maxWidth: widget.width ?? double.maxFinite,
             ),
-            selectedTrailingIcon: (widget.enabled)
-                ? Transform.translate(
-                    offset: Offset(20, 0),
-                    child: Icon(Icons.arrow_drop_up),
-                  )
-                : SizedBox.shrink(),
-            trailingIcon: (widget.enabled)
-                ? Transform.translate(
-                    offset: Offset(20, 0),
-                    child: Icon(Icons.arrow_drop_down),
-                  )
-                : SizedBox.shrink(),
-            initialSelection: (widget.initialValue != '-1')
-                ? widget.initialValue
-                : null,
-            dropdownMenuEntries: widget.options.mapIndexed((index, item) {
-              return DropdownMenuEntry(
-                value: item.value,
-                label: item.label ?? item.value,
-              );
-            }).toList(),
-            onSelected: (value) {
-              if (widget.onChanged != null && value != null) {
-                widget.onChanged!(value);
-              }
-            },
+            child: DropdownMenu<String>(
+              width: context.maxWidth - 32,
+              alignmentOffset: Offset(-16, 0),
+              textStyle: widget.textStyle ?? _textNormal,
+              inputDecorationTheme: InputDecorationTheme(
+                enabledBorder: widget.border,
+                disabledBorder: widget.border,
+              ),
+              selectedTrailingIcon: (widget.enabled)
+                  ? Transform.translate(
+                      offset: Offset(20, 0),
+                      child: Icon(Icons.arrow_drop_up, color: widget.iconColor),
+                    )
+                  : SizedBox.shrink(),
+              trailingIcon: (widget.enabled)
+                  ? Transform.translate(
+                      offset: Offset(20, 0),
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        color: widget.iconColor,
+                      ),
+                    )
+                  : SizedBox.shrink(),
+              initialSelection: (widget.initialValue != '-1')
+                  ? widget.initialValue
+                  : null,
+              dropdownMenuEntries: widget.options.mapIndexed((index, item) {
+                return DropdownMenuEntry(
+                  value: item.value,
+                  label: item.label ?? item.value,
+                );
+              }).toList(),
+              onSelected: (value) {
+                if (widget.onChanged != null && value != null) {
+                  widget.onChanged!(value);
+                }
+              },
+            ),
           ),
         ),
       ],

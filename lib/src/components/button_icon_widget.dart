@@ -4,23 +4,29 @@ class ButtonIconWidget extends StatelessWidget {
   const ButtonIconWidget({
     super.key,
     required this.icon,
-    required this.label,
+    this.label = '',
     this.borderRadius = 12,
+    this.iconSize = 64,
+    this.iconBackground,
+    this.labelTextStyle,
   });
 
   final Widget icon;
   final String label;
   final double borderRadius;
+  final double iconSize;
+  final Color? iconBackground;
+  final TextStyle? labelTextStyle;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          height: 64,
-          width: 64,
+          height: iconSize,
+          width: iconSize,
           decoration: BoxDecoration(
-            color: _buttonIconBackground,
+            color: iconBackground ?? _buttonIconBackground,
             borderRadius: BorderRadius.circular(borderRadius),
             border: Border.all(color: _buttonIconBorder),
           ),
@@ -29,14 +35,16 @@ class ButtonIconWidget extends StatelessWidget {
             child: icon,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 5),
-          child: Text(
-            label,
-            textAlign: TextAlign.center,
-            style: _textMedium?.copyWith(color: _onButtonIcon),
+        if (label.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.only(top: 5),
+            child: Text(
+              label,
+              textAlign: TextAlign.center,
+              style:
+                  labelTextStyle ?? _textMedium?.copyWith(color: _onButtonIcon),
+            ),
           ),
-        ),
       ],
     );
   }
