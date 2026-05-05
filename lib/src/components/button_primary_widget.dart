@@ -3,12 +3,12 @@ part of '../../standard_visual.dart';
 class ButtonPrimaryWidget extends StatelessWidget {
   const ButtonPrimaryWidget({
     super.key,
-    this.label,
+    this.labelText,
     this.isActive = true,
     this.borderRadius = 12,
   });
 
-  final String? label;
+  final String? labelText;
   final bool isActive;
   final double borderRadius;
 
@@ -23,7 +23,7 @@ class ButtonPrimaryWidget extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          label ?? '',
+          labelText ?? '',
           style: _textLarge?.copyWith(
             color: (isActive) ? _onButtonPrimary : _onButtonPrimaryInactive,
           ),

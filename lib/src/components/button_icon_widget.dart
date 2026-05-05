@@ -4,7 +4,7 @@ class ButtonIconWidget extends StatelessWidget {
   const ButtonIconWidget({
     super.key,
     required this.icon,
-    this.label = '',
+    this.labelText = '',
     this.borderRadius = 12,
     this.iconSize = 64,
     this.iconBackground,
@@ -12,7 +12,7 @@ class ButtonIconWidget extends StatelessWidget {
   });
 
   final Widget icon;
-  final String label;
+  final String labelText;
   final double borderRadius;
   final double iconSize;
   final Color? iconBackground;
@@ -35,11 +35,11 @@ class ButtonIconWidget extends StatelessWidget {
             child: icon,
           ),
         ),
-        if (label.isNotEmpty)
+        if (labelText.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(top: 5),
             child: Text(
-              label,
+              labelText,
               textAlign: TextAlign.center,
               style:
                   labelTextStyle ?? _textMedium?.copyWith(color: _onButtonIcon),
