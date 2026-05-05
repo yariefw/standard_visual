@@ -13,3 +13,9 @@ Color get _onButtonSecondaryInactive => Color(0xFFfbb0c9);
 
 Color get _buttonPin => Color(0xFF1c2965);
 Color get _onButtonPin => Color(0xFF72d7de);
+
+Color get _windowFrameTitle => Color(0xFF5566b0);
+Color get _windowFrameContent => Color(0xFF4455a0);
+Color get _onWindowFrameTitle => Color(0xFFd0d6f0);
+
+Color get _windowCard => _windowFrameContent;

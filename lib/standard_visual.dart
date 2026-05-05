@@ -17,3 +17,5 @@ part 'src/components/input_dropdown_widget.dart';
 part 'src/components/input_numpad_widget.dart';
 part 'src/components/dialog_simple.dart';
 part 'src/components/dialog_alert.dart';
+part 'src/components/window_frame_widget.dart';
+part 'src/components/window_card_widget.dart';

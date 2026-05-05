@@ -40,6 +40,7 @@ class _ShowcasePageState extends State<ShowcasePage> {
                   viewComponentButton(),
                   viewComponentInput(),
                   viewComponentDialog(),
+                  viewComponentWindow(),
                   SizedBox(
                     height: MediaQuery.of(context).viewInsets.bottom + 150,
                   ),
@@ -175,6 +176,50 @@ class _ShowcasePageState extends State<ShowcasePage> {
                 );
               },
               child: Text('Show Dialog'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget viewComponentWindow() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Window', style: TextStyle(fontSize: 20)),
+          SizedBox(height: 20),
+          WindowFrameWidget(
+            labelText: 'Label',
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.settings,
+                        size: 36,
+                        color: Colors.blueGrey,
+                      ),
+                    ),
+                    Text(
+                      'Content',
+                      style: const TextStyle(fontSize: 14, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          WindowCardWidget(
+            child: Text(
+              'The quick brown fox jumps over the lazy dog. A wizard\'s job is to vex chumps quickly in fog. How vexingly quick daft zebras jump. The five boxing wizards jump quickly. Pack my box with five dozen liquor jugs. Sphinx of black quartz, judge my vow.',
+              style: const TextStyle(fontSize: 14, color: Colors.white),
             ),
           ),
         ],
