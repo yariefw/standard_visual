@@ -59,7 +59,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
         labelText: widget.labelText,
         hintText: widget.hintText,
         prefixText: widget.prefixText,
-        labelStyle: widget.labelstyle ?? TextStyle(color: Colors.black),
+        labelStyle: widget.labelstyle ?? _textLabel?.copyWith(fontSize: 15.5),
         hintStyle: widget.hintstyle ?? TextStyle(color: Colors.grey.shade400),
         prefixStyle:
             widget.prefixstyle ?? TextStyle(fontSize: 18, color: Colors.black),

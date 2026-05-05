@@ -40,10 +40,7 @@ class _InputDropdownWidgetState extends State<InputDropdownWidget> {
         if (widget.labelText?.isNotEmpty ?? false)
           Padding(
             padding: const EdgeInsets.only(bottom: 5),
-            child: Text(
-              widget.labelText ?? '',
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
+            child: Text(widget.labelText ?? '', style: _textLabel),
           ),
         IgnorePointer(
           ignoring: !widget.enabled,

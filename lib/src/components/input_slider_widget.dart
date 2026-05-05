@@ -50,10 +50,7 @@ class _InputSliderWidgetState extends State<InputSliderWidget> {
         if (widget.labelText?.isNotEmpty ?? false)
           Padding(
             padding: const EdgeInsets.only(bottom: 5),
-            child: Text(
-              widget.labelText ?? '',
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
+            child: Text(widget.labelText ?? '', style: _textLabel),
           ),
         ValueListenableBuilder(
           valueListenable: currentValueNotifier,
