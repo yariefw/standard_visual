@@ -72,6 +72,10 @@ class _ShowcasePageState extends State<ShowcasePage> {
           ButtonSecondaryWidget(label: 'Label', isActive: true),
           SizedBox(height: 20),
           ButtonSecondaryWidget(label: 'Label', isActive: false),
+          SizedBox(height: 20),
+          Text('Extra', style: TextStyle(fontSize: 14)),
+          SizedBox(height: 15),
+          ButtonIconWidget(icon: Icon(Icons.settings), label: 'Icon Button'),
         ],
       ),
     );

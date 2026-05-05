@@ -11,6 +11,10 @@ Color get _buttonSecondaryInactive => Color(0xFFeeb7c9);
 Color get _onButtonSecondary => Color(0xFF293f6c);
 Color get _onButtonSecondaryInactive => Color(0xFFfbb0c9);
 
+Color get _buttonIconBackground => Colors.transparent;
+Color get _buttonIconBorder => _buttonPrimary;
+Color get _onButtonIcon => _buttonPrimary;
+
 Color get _buttonPin => Color(0xFF1c2965);
 Color get _onButtonPin => Color(0xFF72d7de);
 
