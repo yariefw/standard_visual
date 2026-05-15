@@ -4,19 +4,25 @@ class ButtonSecondaryWidget extends StatelessWidget {
   const ButtonSecondaryWidget({
     super.key,
     this.labelText,
+    this.labelStyle,
     this.isActive = true,
     this.borderRadius = 12,
+    this.height,
+    this.width,
   });
 
   final String? labelText;
+  final TextStyle? labelStyle;
   final bool isActive;
   final double borderRadius;
+  final double? height;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 65,
-      width: context.maxWidth,
+      height: height ?? 65,
+      width: width ?? context.maxWidth,
       decoration: BoxDecoration(
         color: _buttonSecondaryBackground,
         borderRadius: BorderRadius.circular(borderRadius),
@@ -27,9 +33,13 @@ class ButtonSecondaryWidget extends StatelessWidget {
       child: Center(
         child: Text(
           labelText ?? '',
-          style: _textLarge?.copyWith(
-            color: (isActive) ? _onButtonSecondary : _onButtonSecondaryInactive,
-          ),
+          style:
+              labelStyle ??
+              _textLarge?.copyWith(
+                color: (isActive)
+                    ? _onButtonSecondary
+                    : _onButtonSecondaryInactive,
+              ),
         ),
       ),
     );
