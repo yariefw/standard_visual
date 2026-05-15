@@ -20,3 +20,4 @@ part 'src/components/dialog_simple.dart';
 part 'src/components/dialog_alert.dart';
 part 'src/components/window_frame_widget.dart';
 part 'src/components/window_card_widget.dart';
+part 'src/components/progress_bar_widget.dart';
